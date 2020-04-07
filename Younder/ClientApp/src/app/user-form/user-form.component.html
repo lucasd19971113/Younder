@@ -1,0 +1,92 @@
+<div class="container">
+    
+      <form class="example-form">
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input [(ngModel)]="user.name" name="name" matInput type="text" [formControl] = "nameFormControl" [errorStateMatcher] = "matcher">
+          <mat-error *ngIf="nameFormControl.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Lastname</mat-label>
+          <input [(ngModel)]="user.lastname" name="lastname" matInput type="text" [formControl] = "lastNameFormControl" [errorStateMatcher] = "matcher">
+          <mat-error *ngIf="lastNameFormControl.hasError('required')">
+            Lastname is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon> -->
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Date of Birth</mat-label>
+          <input [(ngModel)]="user.birth" name="birth" matInput [min]="startDate" [max]="endDate" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+
+        
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Phone Number</mat-label>
+          <input [(ngModel)]="user.phoneNumber" name="phoneNumber" matInput type="text" [formControl] = "phoneFormControl" [errorStateMatcher] = "matcher">
+          <mat-error *ngIf="phoneFormControl.hasError('required')">
+            Phone number is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Country</mat-label>
+          <input [(ngModel)]="user.country" name="country" matInput type="text" [formControl] = "originFormControl" [errorStateMatcher] = "matcher">
+          <mat-error *ngIf="originFormControl.hasError('required')">
+            Origin is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>CPF</mat-label>
+          <input [(ngModel)]="user.cpf" name="cpf" matInput type="text" [formControl] = "cpfFormControl" [errorStateMatcher] = "matcher">
+          <mat-error *ngIf="cpfFormControl.hasError('maxLength') && !cpfFormControl.hasError('required')">
+            Please enter a valid CPF
+          </mat-error>
+          <mat-error *ngIf="cpfFormControl.hasError('required')">
+            CPF is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="user.email" name="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                 placeholder="Ex. pat@example.com">
+            
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+        <br>
+
+
+        <div class="example-full-width" style="margin-bottom: 10%;">
+
+          <mat-button-toggle (click) ="clean()" class="cancel" style="color:red">Cancel</mat-button-toggle>
+
+          <mat-button-toggle type="submit" (click) ="addUser()" class="add" >Add User</mat-button-toggle>
+
+        </div>
+        
+        
+
+      </form>
+
+</div>

@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+  }
+
+
+::ng-deep {
+  .mat-button-toggle :hover{
+    .delete-button
+    {
+      color: red;
+    }
+  }
+ }
+
+ ::ng-deep {
+  .mat-button-toggle {
+    background-color:  white;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+ }
+
+//  ::ng-deep .mat-datepicker{ visibility: visible; z-index: -999 !important; display: block; }
+
+ ::ng-deep .cdk-overlay-container {
+  position: fixed !important;
+  z-index: 100000 !important; /* set value you need */
+}
+
+ .update-form
+ {
+  display: flex;
+  flex-direction: column;
+ }
+
+
+ .add
+  {
+    margin-left: 25%;
+    margin-right: 0;
+  }
